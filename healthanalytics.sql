@@ -10,6 +10,13 @@ FROM ocd_patient_dataset;
 SELECT *
 FROM Patientstaging;
 
+SELECT `Patient ID`, Age, Gender, `OCD Diagnosis Date`
+FROM ocd_patient_dataset
+EXCEPT
+SELECT `Patient ID`, Age, Gender, `OCD Diagnosis Date`
+FROM Patientstaging;
+
+
 -- Step 3: Check for duplicate Patient IDs
 SELECT `Patient ID`, COUNT(`Patient ID`) AS count
 FROM Patientstaging
